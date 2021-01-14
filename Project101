@@ -1,0 +1,144 @@
+#include<stdio.h>
+#include<string.h>
+
+
+struct information{
+    char name[50];
+    int age;
+    char course[20];
+} student;
+
+void Menu();
+void addInfo();
+void viewInfo();
+void delInfo();
+
+int main(){
+
+    int choice = 0;
+    while(choice != 4){
+
+        Menu();
+            scanf("%d", &choice);
+
+        switch(choice){
+            case 1:
+                addInfo();
+                break;
+            case 2:
+                viewInfo();
+                break;
+            case 3:
+                delInfo();
+                break;
+            case 4:
+                puts("EXIT!");
+                break;
+            default:
+                puts("\t\t[INVALID INPUT]");
+                break;
+        }//END OF SWITCH
+    }//END OF WHILE
+return 0;
+}
+
+void Menu(){
+        puts("\n \n");
+        puts("\t\t|=====================|");
+        puts("\t\t|=====  M E N U  =====|");
+        puts("\t\t|=====================|");
+        puts("\t\t|   [1.] Add          |");
+        puts("\t\t|   [2.] View         |");
+        puts("\t\t|   [3.] Delete       |");
+        puts("\t\t|   [4.] Exit         |");
+        puts("\t\t|=====================|");
+        printf("\t\tEnter your choice: ");
+}
+
+void addInfo(){
+                puts("\t\tYOU HAVE CHOSEN [1]");
+                int sub_choice1 = 0;
+                while (sub_choice1 != 4){
+                    puts("\n\n\n");
+					puts("[ADD YOUR DATA HERE]");
+
+					printf("\nName: ");
+                    scanf("%s", &student.name);
+
+    				printf("Course: ");
+                    scanf("%s", &student.course);
+
+					printf("Age: ");
+					scanf("%d", &student.age);
+
+                    puts("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("THANK YOU!!");
+                    puts("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("To return to main menu, ENTER [4]");
+                    scanf("%d", &sub_choice1);
+
+					if(sub_choice1 == 4){
+					   puts("<<MENU");
+					}
+                    else {
+					   puts("INVALID INPUT!");
+					}
+                }
+
+}
+
+void viewInfo(){
+                puts("\t\tYOU HAVE CHOSEN [2]");
+                int sub_choice2 = 0;
+                while (sub_choice2 != 4){
+                    puts("\n\n\n");
+					puts("\n[VIEWING DATA]");
+                    printf("\nName: ");
+                    printf("%s", student.name);
+                    printf("\nCourse: ");
+                    printf("%s", student.course);
+                    printf("\nAge: ");
+                    printf("%d", student.age);
+
+                    puts("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("THANK YOU!!");
+                    puts("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("To return to main menu, ENTER [4]");
+                    scanf("%d", &sub_choice2);
+
+					if(sub_choice2 == 4){
+					   puts("<<MENU");
+					}
+					else {
+					   puts("INVALID INPUT!");
+					}
+                }
+}
+
+void delInfo(){
+                 puts("\t\tYOU HAVE CHOSEN [3]");
+                 int sub_choice3 = 0;
+                 while (sub_choice3 != 4){
+                 int i;
+                 for (i = 0; i < 50; i++)
+                    {student.name[i] = ' ';student.age = 0 ;student.course[i] = ' ';}
+
+                    printf("\n[INFORMATION HAS BEEN DELETED]");
+                    printf("\nName: %s", student.name);
+                    printf("\nCourse: %s", student.course);
+                    printf("\nAge: %d", student.age);
+
+                    puts("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("THANK YOU!!");
+                    puts("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+                    puts("To return to main menu, ENTER [4]");
+                    scanf("%d", &sub_choice3);
+
+					if(sub_choice3 == 4){
+					   puts("<<MENU");
+					}
+					else {
+					   puts("INVALID INPUT!");
+					}
+                 }
+}
