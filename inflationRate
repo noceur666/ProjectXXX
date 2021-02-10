@@ -1,0 +1,52 @@
+/**
+ * Write a Java program that gauge the rate of 
+ * inflation for the past year. The program asks 
+ * for the price of the item both one year ago and today. 
+ * It estimates the inflation rate as the difference 
+ * in price divided by the year ago price. Define a 
+ * function to compute the rate of inflation. 
+ * The inflation rate should be a value of type 
+ * double giving the rate as a percent, 
+ * for example 5.3 for 5.3%. Also print out the 
+ * estimated price of the item in one and in two years 
+ * from the time of the calculation. The increase in 
+ * cost over one year is estimated as the inflation rate 
+ * times the price at the start of the year. 
+ * Define a second function to determine the estimated 
+ * cost of an item in one year, given the current price 
+ * of the item and the inflation rate as arguments. 
+ *
+ * @author (Abner N. Masong Jr.)
+ * @version (Feb. 10, 2021)
+ */
+
+import java.util.Scanner;
+
+public class Inflation{
+    static Scanner scan = new Scanner(System.in);
+    public static void main (){
+        //variable declaration
+        double oldPrice;
+        double currentPrice;
+        double inflationRate0;
+        double inflationRate;
+        double costin1yrPartial;
+        double costin1Yr;
+                
+        System.out.print("\f");
+        System.out.print("Enter the price of an item a year ago: ");
+        oldPrice = scan.nextDouble();
+        
+        System.out.print("\nEnter the current price of the item: ");
+        currentPrice = scan.nextDouble();
+        
+        inflationRate0 = ((currentPrice - oldPrice) / oldPrice);
+        inflationRate = inflationRate0 * 100;
+        System.out.print("The inflation rate is " + inflationRate + "%.\n" );
+        
+        costin1yrPartial = inflationRate0 * currentPrice;
+        costin1Yr = currentPrice + costin1yrPartial;
+        System.out.print("\nThe estimated price of the product in the next year is " + costin1Yr + "." );
+        
+    }
+}
