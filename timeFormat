@@ -1,0 +1,57 @@
+/**
+ * Write a Java class that converts from twenty-four-hour notation 
+ * to twelve-hour notation. For example, 
+ * it should convert 14:25 to 2:25 PM. The inputs are given as two numbers. 
+ *
+ * @author (Abner N. Masong Jr.)
+ * @version (Feb. 10, 2021)
+ */
+
+import java.util.Scanner;
+
+public class Time{
+    static Scanner scan = new Scanner(System.in);
+    public static void main (){
+        //variable declaration
+        int hour;
+        int minute;
+        int convertedHr;
+        
+        System.out.print("\f");
+        System.out.print("Enter the hour(HH): ");
+        hour = scan.nextInt();
+        
+        System.out.print("Enter the minute(MM): ");
+        minute = scan.nextInt();
+        
+        if (hour > 24 || minute > 60){
+            System.out.print("Invalid input.");
+        }
+        else if (hour > 12 && hour <24){
+            convertedHr = hour - 12;
+            System.out.print("The time entered is " + hour + ":" + minute + "." +
+            "\n\nThe equivalent 12-hour time is " +convertedHr
+                                + ":" + minute + " PM.");
+        }
+        else if (hour < 12){
+            convertedHr = hour;
+            System.out.print("The time entered is " + hour + ":" + minute + "." +
+            "\n\nThe equivalent 12-hour time is " +convertedHr
+                                + ":" + minute + " AM.");
+        }
+        else if(hour == 24){
+            convertedHr = 12;
+            System.out.print("The time entered is " + hour + ":" + minute + "." +
+            "\n\nThe equivalent 12-hour time is " +convertedHr
+                                + ":" + minute + " AM.");
+        }
+        else if(hour == 12){
+            convertedHr = 12;
+            System.out.print("The time entered is " + hour + ":" + minute + "." +
+            "\n\nThe equivalent 12-hour time is " +convertedHr
+                                + ":" + minute + " PM.");
+        }
+        
+        
+    }
+}
